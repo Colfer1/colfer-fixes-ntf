@@ -24,6 +24,8 @@
 	. = ..()
 	if(!.)
 		return
+	if(isrobot(owner))
+		return // Robots shouldn't be scared of bullets and lose accuracy
 	ADD_TRAIT(owner, TRAIT_STAGGERED, TRAIT_STATUS_EFFECT(id))
 	owner.adjust_mob_scatter(10)
 
